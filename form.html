@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+</head>
+<body>
+    <div id="results"> </div>
+<form method="post" action="">
+<input id="name" name="name" type="text" required>
+<input id="surnname" name="surnname"  type="text" required >
+<input id="middlename" name="middlename"  type="text" required >
+<input id="address" name="address" type="text" required >
+<input value="Submit" id="btn" type="button"> 
+</form>
+<script>
+    $(document).ready(function(){
+        $('#btn').click(function(){
+        var name = $('#name').val();
+        var surnname = $('#surnname').val();
+        var middlename = $('#middlename').val();
+        var address = $('#address').val();
+       $.ajax({
+         type: 'POST',
+         url: 'func.php',
+         data: {
+            "name": name,
+            "surnname": surnname,
+            "middlename": middlename,
+            "address": address
+         }
+            });
+        });
+    });
+</script>
+</body>
+</html>
